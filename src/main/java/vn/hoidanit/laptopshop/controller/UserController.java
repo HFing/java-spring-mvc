@@ -38,13 +38,15 @@ public class UserController {
 
     @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
     public String creatUserPage(Model model, @ModelAttribute("newUser") User newUser) {
-        System.out.println("Run here" + newUser);
         this.userRepository.save(newUser);
-        return "hello";
+        return "redirect:/admin/user";
     }
 
     @RequestMapping("/admin/user") // GET
     public String getUserPage(Model model) {
+        List<User> users = this.userService.getAllUsers();
+        model.addAttribute("users", users);
+        System.out.println(">>>Check users" + users);
         return "admin/user/table-user";
     }
 
