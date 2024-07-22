@@ -30,10 +30,9 @@ public class UserController {
         return "hello";
     }
 
-    @RequestMapping("/admin/user")
-    public String getUserPage(Model model) {
+    @RequestMapping("/admin/user/create") // GET
+    public String getCreatUserPage(Model model) {
         model.addAttribute("newUser", new User());
-        model.addAttribute("name", "Hfing");
         return "admin/user/create";
     }
 
@@ -43,4 +42,10 @@ public class UserController {
         this.userRepository.save(newUser);
         return "hello";
     }
+
+    @RequestMapping("/admin/user") // GET
+    public String getUserPage(Model model) {
+        return "admin/user/table-user";
+    }
+
 }
