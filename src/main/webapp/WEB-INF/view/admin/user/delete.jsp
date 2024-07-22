@@ -7,7 +7,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>User Detail ${id}</title>
+                <title>Delete user ${id}</title>
                 <!-- Latest compiled and minified CSS -->
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
                 <!-- Latest compiled JavaScript -->
@@ -20,22 +20,20 @@
                 <div class="container mt-5">
                     <div class="col-12 mx-auto">
                         <div class="d-flex justify-content-between">
-                            <h3>User Detail ${id}</h3>
+                            <h3>Delete User ID : ${id}</h3>
                         </div>
                         <hr />
-                        <div class="card" style="width: 60%;">
-                            <div class="card-header">
-                                User Information
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">ID: ${user.id}</li>
-                                <li class="list-group-item">Email: ${user.email}</li>
-                                <li class="list-group-item">Address: ${user.address}</li>
-                            </ul>
-                        </div>
+                        <div class="alert alert-danger" role="alert">Are you sure delete this user</div>
                     </div>
-                    <a href="/admin/user" class="btn btn-primary mt-3">Back</a>
+                    <form:form action="/admin/user/delete" modelAttribute="newUser" method="post">
+                        <div class="mb-3" style="display: none;">
+                            <label class="form-label">Id :</label>
+                            <form:input value="${id}" type="text" class="form-control" path="id" />
+                        </div>
+                        <button class="btn btn-danger">Delete</button>
+                    </form:form>
+
                 </div>
             </body>
 
-            </html>
+            </html>v
